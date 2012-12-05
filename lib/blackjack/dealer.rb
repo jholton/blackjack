@@ -1,0 +1,2 @@
+class Dealer < Participant
+end

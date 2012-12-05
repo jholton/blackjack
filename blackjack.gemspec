@@ -3,9 +3,9 @@ require File.expand_path('../lib/blackjack/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Johnny Holton"]
-  gem.email         = ["johnnyholton@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.email         = ["johnny@holton.co"]
+  gem.description   = %q{blackjack game}
+  gem.summary       = %q{blackjack game}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
