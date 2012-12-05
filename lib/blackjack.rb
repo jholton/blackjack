@@ -20,7 +20,7 @@ module Blackjack
   include Input
   Object.extend Input
 
-  puts "Would you like to play a game of Blackjack?"
+  Input.puts_and_say "Would you like to play a game of Blackjack?"
   answer = gets.chomp
   if ["y","yes"].include? answer.downcase
     bjg = BlackjackGame.new
