@@ -36,43 +36,44 @@ class BlackjackGame
 
   def play
     puts "Shuffle up."
+    `say shuffle up`
 
     puts "Dealer says:  How many players do we have?"
+    `say How many players do we have?`
 
     meet_players
 
     puts "\nDealing first two cards."
+    `say dealing first two cards.`
 
     2.times{ deal_a_round_of_cards }
 
     check_for_blackjack
 
     #OK, let's start the rounds
+    players_play @players, @deck
 
-    @players.each do |p|
-      p.play @deck
-      puts @deck.cards.count
-    end
-
-    puts "\nOK, dealer's turn!"
-
-    puts "\nDealer's hand is #{@dealer.hand_to_s}"
-
-    sleep 1
-
-    while @dealer.hand_value < 17
-      @dealer.take_a_card @deck
-      puts "Dealer drew #{@dealer.hand.last.to_s}"
-      sleep 1
-      puts "Oooo, dealer busted!" if @dealer.busted?
-    end
+    dealer_plays
 
     puts "\nDealer's hand value is #{@dealer.hand_value}\n"
 
     @players.each do |p|
-      puts "#{p.name} #{p.result(@dealer.hand_value)} (score: #{p.hand_value})"
+      puts p.result_summary @dealer
     end
 
     puts "\nThanks for playing!"
+  end
+
+  def players_play players, deck
+    players.each do |p|
+      p.play deck
+    end
+  end
+
+  def dealer_plays dealer, deck
+    puts "\nOK, dealer's turn!"
+    puts "\nDealer's hand is #{dealer.hand_to_s}"
+    sleep 1
+    dealer.play deck
   end
 end

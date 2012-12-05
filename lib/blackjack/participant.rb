@@ -36,20 +36,4 @@ class Participant
     puts "\nDealer says:  #{name}, your hand is #{hand_to_s}"
     puts "What do you want to do?"
   end
-
-  def result(dealer_hand_value)
-    if hand_value > 21
-      "busted"
-    elsif dealer_hand_value > 21
-      "won!"
-    elsif hand_value > dealer_hand_value
-      "won!"
-    elsif hand_value == dealer_hand_value
-      "pushed"
-    elsif hand_value < dealer_hand_value
-      "dealer won"
-    else
-      "uh, somthing's wrong"
-    end
-  end
 end
