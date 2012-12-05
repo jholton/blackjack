@@ -10,7 +10,8 @@ module Blackjack
   puts "Would you like to play a game of Blackjack?"
   answer = gets.chomp
   if ["y","yes"].include? answer.downcase
-    BlackjackGame.play
+    bjg = BlackjackGame.new
+    bjg.play
   else
     "OK, maybe later."
   end

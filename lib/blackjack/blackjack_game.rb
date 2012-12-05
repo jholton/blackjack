@@ -4,7 +4,7 @@ class BlackjackGame
     @players = []
   end
 
-  def self.meet_players
+  def meet_players
     player_count = gets.to_i
     player_count.times do |i|
       @players << instance_variable_set("@player#{i}", Player.new)
@@ -18,7 +18,7 @@ class BlackjackGame
     @players
   end
 
-  def self.play
+  def play
     puts "Shuffle up."
     @dealer = Dealer.new
     @deck = Deck.new
