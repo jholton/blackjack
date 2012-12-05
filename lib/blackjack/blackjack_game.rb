@@ -13,7 +13,7 @@ class BlackjackGame
     end
 
     @players.each_with_index do |p, i|
-      Input.puts_and_say  "What is Player #{i+1}\'s name?"
+      Input.puts_and_say  "What is Player #{i+1}\s name?"
       name = gets.strip
       p.name = name
     end
