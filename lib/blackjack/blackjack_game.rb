@@ -25,14 +25,16 @@ class BlackjackGame
     @players.each{|p| p.take_a_card @deck}
   end
 
-  def check_for_blackjack
+  def dealer_has_blackjack?
     #if @dealer.best_score?
     if true
       Input.puts_and_say "\nOh no, the dealer has 21!  Fork over the chips."
       Input.puts_and_say "Thanks for playing."
       #TODO exit game here
+      true
     else
       Input.puts_and_say "\nThe dealer\\'s top card is #{@dealer.hand.first.to_s}"
+      false
     end
   end
 
@@ -47,7 +49,7 @@ class BlackjackGame
 
     2.times{ deal_a_round_of_cards }
 
-    check_for_blackjack
+    return if dealer_has_blackjack?
 
     #OK, let's start the rounds
     players_play @players, @deck
