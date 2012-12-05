@@ -25,7 +25,7 @@ class BlackjackGame
 
     puts "Dealer says:  How many players do we have?"
 
-    players = Player.meet_players
+    players = BlackjackGame.meet_players
 
     puts "\nDealing first two cards."
 
