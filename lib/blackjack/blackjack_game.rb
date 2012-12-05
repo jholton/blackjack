@@ -35,7 +35,7 @@ class BlackjackGame
   end
 
   def play
-    puts_and_say "shuffle up"
+    Input.puts_and_say "shuffle up"
 
     puts "Dealer says:  How many players do we have?"
     `say How many players do we have?`

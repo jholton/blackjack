@@ -18,9 +18,11 @@ module Blackjack
 end
 
 module Input
-  def puts_and_say phrase
-    puts phrase
-    `say #{phrase}`
+  class << self
+    def puts_and_say phrase
+      puts phrase
+      `say #{phrase}`
+    end
   end
 end
 
