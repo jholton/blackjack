@@ -15,4 +15,9 @@ module Blackjack
   else
     "OK, maybe later."
   end
+
+  def puts_and_say phrase
+    puts phrase
+    `say #{phrase}`
+  end
 end
