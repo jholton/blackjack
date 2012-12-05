@@ -51,7 +51,7 @@ class BlackjackGame
 
     @players.each do |p|
       p.play @deck
-      #TODO:  do I have to pass @deck ?
+      puts @deck.cards.count
     end
 
     puts "\nOK, dealer's turn!"
