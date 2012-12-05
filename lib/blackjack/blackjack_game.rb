@@ -35,15 +35,13 @@ class BlackjackGame
   end
 
   def play
-    Input.puts_and_say "shuffle up"
+    Input.puts_and_say "Shuffle up."
 
-    puts "Dealer says:  How many players do we have?"
-    `say How many players do we have?`
+    Input.puts_and_say "How many players do we have?"
 
     meet_players
 
-    puts "\nDealing first two cards."
-    `say dealing first two cards.`
+    Input.puts_and_say "\nDealing first two cards."
 
     2.times{ deal_a_round_of_cards }
 
