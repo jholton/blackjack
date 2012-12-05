@@ -54,7 +54,7 @@ class BlackjackGame
     #OK, let's start the rounds
     players_play @players, @deck
 
-    dealer_plays
+    dealer_plays @dealer, @deck
 
     Input.puts_and_say "\nDealer\\'s hand value is #{@dealer.hand_value}\n"
 

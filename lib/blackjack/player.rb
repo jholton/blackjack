@@ -10,7 +10,7 @@ class Player < Participant
     prompt
     until time_to_stop?
       take_a_card deck
-      Input.puts_and_say "You drew the #{hand.last.to_s}"
+      Input.puts_and_say "\nYou drew the #{hand.last.to_s}"
       if busted?
         Input.puts_and_say "Ooooo, you busted!  Your hand value was #{hand_value}"
       elsif best_score?
