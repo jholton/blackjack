@@ -27,21 +27,21 @@ class Player < Participant
 
   def result(dealer_hand_value)
     if hand_value > 21
-      "busted"
+      "you busted"
     elsif dealer_hand_value > 21
-      "won!"
+      "you won!"
     elsif hand_value > dealer_hand_value
-      "won!"
+      "you won!"
     elsif hand_value == dealer_hand_value
-      "pushed"
+      "you pushed"
     elsif hand_value < dealer_hand_value
-      "dealer won"
+      "the dealer won"
     else
       "uh, somthing's wrong"
     end
   end
 
   def result_summary dealer
-    Input.puts_and_say "#{name} #{result(dealer.hand_value)}. Your score was #{hand_value}"
+    Input.puts_and_say "#{name}, #{result(dealer.hand_value)}. Your hand value was #{hand_value}"
   end
 end
