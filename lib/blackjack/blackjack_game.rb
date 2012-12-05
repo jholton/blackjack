@@ -28,6 +28,7 @@ class BlackjackGame
   def dealer_has_blackjack?
     if @dealer.best_score?
       Input.puts_and_say "\nOh no, the dealer has 21!  Fork over the chips."
+      Input.puts_and_say "The dealer\\s hand is #{@dealer.hand_to_s}"
       Input.puts_and_say "Thanks for playing."
       #TODO exit game here
       true
