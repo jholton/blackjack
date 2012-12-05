@@ -1,6 +1,6 @@
 class Player < Participant
 
-  def play
+  def play deck
     if best_score?
       puts "\n#{name}, you have a blackjack!"
       puts "Your hand is #{hand_to_s}"
@@ -9,7 +9,7 @@ class Player < Participant
     end
     prompt
     until time_to_stop?
-      take_a_card @deck
+      take_a_card deck
       puts "You drew the #{hand.last.to_s}"
       if busted?
         puts "Ooooo, you busted!  Your hand value was #{hand_value}"

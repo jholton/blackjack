@@ -50,7 +50,7 @@ class BlackjackGame
     #OK, let's start the rounds
 
     @players.each do |p|
-      p.play
+      p.play @deck
       #TODO:  do I have to pass @deck ?
     end
 
