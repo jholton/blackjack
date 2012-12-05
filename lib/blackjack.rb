@@ -15,9 +15,13 @@ module Blackjack
   else
     "OK, maybe later."
   end
+end
 
+module Input
   def puts_and_say phrase
     puts phrase
     `say #{phrase}`
   end
 end
+
+Object.extend Input
