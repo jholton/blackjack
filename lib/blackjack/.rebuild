@@ -1,0 +1,4 @@
+git add .
+git commit -am "changes"
+gem build blackjack.gemspec
+gem install blackjack-0.0.1.gem
