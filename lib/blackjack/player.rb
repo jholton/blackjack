@@ -5,7 +5,7 @@ class Player < Participant
       puts "\n#{name}, you have a blackjack!"
       puts "Your hand is #{hand_to_s}"
       puts "Congratulations!"
-      break
+      return
     end
     prompt
     until time_to_stop?
