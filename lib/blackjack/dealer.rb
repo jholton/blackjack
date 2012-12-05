@@ -6,9 +6,9 @@ class Dealer < Participant
   def play deck
     while has_to_hit?
       take_a_card deck
-      puts "Dealer drew #{hand.last.to_s}"
+      Input.puts_and_say "Dealer drew #{hand.last.to_s}"
       sleep 1
-      puts "Oooo, dealer busted!" if busted?
+      Input.puts_and_say "Oooo, dealer busted!" if busted?
     end
   end
 end

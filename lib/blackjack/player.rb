@@ -42,6 +42,6 @@ class Player < Participant
   end
 
   def result_summary dealer
-    Input.puts_and_say "#{name} #{result(dealer.hand_value)} (score: #{hand_value})"
+    Input.puts_and_say "#{name} #{result(dealer.hand_value)}. Your score was #{hand_value}"
   end
 end
