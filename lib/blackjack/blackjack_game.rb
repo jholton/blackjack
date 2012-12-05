@@ -49,7 +49,7 @@ class BlackjackGame
 
     2.times{ deal_a_round_of_cards }
 
-    return if dealer_has_blackjack?
+    return "  :)  " if dealer_has_blackjack?
 
     #OK, let's start the rounds
     players_play @players, @deck

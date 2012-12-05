@@ -26,6 +26,6 @@ module Blackjack
     bjg = BlackjackGame.new
     bjg.play
   else
-    "OK, maybe later."
+    Input.puts_and_say "OK, maybe later."
   end
 end

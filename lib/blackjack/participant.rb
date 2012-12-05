@@ -33,7 +33,7 @@ class Participant
   end
 
   def prompt
-    puts "\nDealer says:  #{name}, your hand is #{hand_to_s}"
-    puts "What do you want to do?"
+    Input.puts_and_say "\n#{name}, your hand is #{hand_to_s}"
+    Input.puts_and_say "What do you want to do?"
   end
 end
