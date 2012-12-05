@@ -9,8 +9,8 @@ require "blackjack/blackjack_game"
 module Input
   class << self
     def puts_and_say phrase
-      puts phrase
-      `say #{phrase}`
+      puts phrase.gsub("\\'", "'")
+      `say #{phrase.gsub("\n","")}`
     end
   end
 end

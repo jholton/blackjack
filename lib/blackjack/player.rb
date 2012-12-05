@@ -2,19 +2,19 @@ class Player < Participant
 
   def play deck
     if best_score?
-      puts "\n#{name}, you have a blackjack!"
-      puts "Your hand is #{hand_to_s}"
-      puts "Congratulations!"
+      Input.puts_and_say "\n#{name}, you have a blackjack!"
+      Input.puts_and_say "Your hand is #{hand_to_s}"
+      Input.puts_and_say "Congratulations!"
       return
     end
     prompt
     until time_to_stop?
       take_a_card deck
-      puts "You drew the #{hand.last.to_s}"
+      Input.puts_and_say "You drew the #{hand.last.to_s}"
       if busted?
-        puts "Ooooo, you busted!  Your hand value was #{hand_value}"
+        Input.puts_and_say "Ooooo, you busted!  Your hand value was #{hand_value}"
       elsif best_score?
-        puts "Congrats!  You're score is 21!"
+        Input.puts_and_say "Congrats!  Your score is 21!"
       else
         prompt
       end
@@ -42,6 +42,6 @@ class Player < Participant
   end
 
   def result_summary dealer
-    puts "#{name} #{result(dealer.hand_value)} (score: #{hand_value})"
+    Input.puts_and_say "#{name} #{result(dealer.hand_value)} (score: #{hand_value})"
   end
 end

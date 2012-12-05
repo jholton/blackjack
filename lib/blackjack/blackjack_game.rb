@@ -13,7 +13,7 @@ class BlackjackGame
     end
 
     @players.each_with_index do |p, i|
-      Input.puts_and_say  "What is Player #{i+1}\s name?"
+      Input.puts_and_say  "\nWhat is Player #{i+1}\\'s name?"
       name = gets.strip
       p.name = name
     end
@@ -26,11 +26,12 @@ class BlackjackGame
   end
 
   def check_for_blackjack
-    if @dealer.best_score?
-      puts "\nOh no, the dealer has 21!  Fork over the chips."
+    #if @dealer.best_score?
+    if true
+      Input.puts_and_say "\nOh no, the dealer has 21!  Fork over the chips."
       #TODO exit game here
     else
-      puts "\nThe dealer's top card is #{@dealer.hand.first.to_s}"
+      Input.puts_and_say "\nThe dealer\\'s top card is #{@dealer.hand.first.to_s}"
     end
   end
 
@@ -52,13 +53,13 @@ class BlackjackGame
 
     dealer_plays
 
-    puts "\nDealer's hand value is #{@dealer.hand_value}\n"
+    Input.puts_and_say "\nDealer\\'s hand value is #{@dealer.hand_value}\n"
 
     @players.each do |p|
       puts p.result_summary @dealer
     end
 
-    puts "\nThanks for playing!"
+    Input.puts_and_say "\nThanks for playing!"
   end
 
   def players_play players, deck
@@ -68,8 +69,8 @@ class BlackjackGame
   end
 
   def dealer_plays dealer, deck
-    puts "\nOK, dealer's turn!"
-    puts "\nDealer's hand is #{dealer.hand_to_s}"
+    Input.puts_and_say "\nOK, dealer\\'s turn!"
+    Input.puts_and_say "\nDealer\\'s hand is #{dealer.hand_to_s}"
     sleep 1
     dealer.play deck
   end
