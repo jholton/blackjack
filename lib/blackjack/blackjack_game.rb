@@ -2,6 +2,8 @@ class BlackjackGame
 
   def initialize
     @players = []
+    @dealer = Dealer.new
+    @deck = Deck.new
   end
 
   def meet_players
@@ -18,49 +20,38 @@ class BlackjackGame
     @players
   end
 
-  def play
-    puts "Shuffle up."
-    @dealer = Dealer.new
-    @deck = Deck.new
+  def deal_a_round_of_cards
+    @dealer.take_a_card @deck
+    @players.each{|p| p.take_a_card @deck}
+  end
 
-    puts "Dealer says:  How many players do we have?"
-
-    players = meet_players
-
-    puts "\nDealing first two cards."
-
-    2.times do
-      @dealer.take_a_card @deck
-      players.each{|p| p.take_a_card @deck}
-    end
-
+  def check_for_blackjack
     if @dealer.best_score?
       puts "\nOh no, the dealer has 21!  Fork over the chips."
+      #TODO exit game here
     else
       puts "\nThe dealer's top card is #{@dealer.hand.first.to_s}"
     end
+  end
+
+  def play
+    puts "Shuffle up."
+
+    puts "Dealer says:  How many players do we have?"
+
+    meet_players
+
+    puts "\nDealing first two cards."
+
+    2.times{ deal_a_round_of_cards }
+
+    check_for_blackjack
 
     #OK, let's start the rounds
 
-    players.each do |p|
-      if p.best_score?
-        puts "\n#{p.name}, you have a blackjack!"
-        puts "Your hand is #{p.hand_to_s}"
-        puts "Congratulations!"
-        next
-      end
-      p.prompt
-      until p.busted? || p.best_score? || gets.strip == "stay"
-        p.take_a_card @deck
-        puts "You drew the #{p.hand.last.to_s}"
-        if p.busted?
-          puts "Ooooo, you busted!  Your hand value was #{p.hand_value}"
-        elsif p.best_score?
-          puts "Congrats!  You're score is 21!"
-        else
-          p.prompt
-        end
-      end
+    @players.each do |p|
+      p.play
+      #TODO:  do I have to pass @deck ?
     end
 
     puts "\nOK, dealer's turn!"
@@ -78,7 +69,7 @@ class BlackjackGame
 
     puts "\nDealer's hand value is #{@dealer.hand_value}\n"
 
-    players.each do |p|
+    @players.each do |p|
       puts "#{p.name} #{p.result(@dealer.hand_value)} (score: #{p.hand_value})"
     end
 
