@@ -24,4 +24,4 @@ module Input
   end
 end
 
-Object.extend Input
+Object.send :include, Input
