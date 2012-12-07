@@ -25,7 +25,7 @@ class Participant
   end
 
   def best_score?
-    hand_value == 21
+    self.hand_value == 21
   end
 
   def hand_to_s

@@ -7,21 +7,21 @@ class BlackjackGame
   end
 
   def meet_players
+    Input.puts_and_say "How many players do we have?"
     player_count = gets.to_i
     player_count.times do |i|
-      @players << instance_variable_set("@player#{i}", Player.new)
+      @players << Player.new
     end
 
     @players.each_with_index do |p, i|
       Input.puts_and_say  "\nWhat is Player #{i+1}\\'s name?"
-      name = gets.strip
-      p.name = name
+      p.name = gets.strip
     end
     @players
   end
 
   def deal_a_round_of_cards
-    @dealer.take_a_card @deck
+    @dealer.take_a_card(@deck)
     @players.each{|p| p.take_a_card @deck}
   end
 
@@ -40,8 +40,7 @@ class BlackjackGame
 
   def play
     Input.puts_and_say "Shuffle up."
-    Input.puts_and_say "How many players do we have?"
-    meet_players
+    self.meet_players
     Input.puts_and_say "\nDealing first two cards."
     2.times{ deal_a_round_of_cards }
     return "  :)  " if dealer_has_blackjack?
