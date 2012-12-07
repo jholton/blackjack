@@ -40,28 +40,18 @@ class BlackjackGame
 
   def play
     Input.puts_and_say "Shuffle up."
-
     Input.puts_and_say "How many players do we have?"
-
     meet_players
-
     Input.puts_and_say "\nDealing first two cards."
-
     2.times{ deal_a_round_of_cards }
-
     return "  :)  " if dealer_has_blackjack?
-
     #OK, let's start the rounds
     players_play @players, @deck
-
     dealer_plays @dealer, @deck
-
     Input.puts_and_say "\nDealer\\'s hand value is #{@dealer.hand_value}\n"
-
     @players.each do |p|
       puts p.result_summary @dealer
     end
-
     Input.puts_and_say "\nThanks for playing!"
   end
 
