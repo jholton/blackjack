@@ -17,15 +17,15 @@ end
 
 
 module Blackjack
-  include Input
-  Object.extend Input
+  # include Input
+  # Object.extend Input
 
-  Input.puts_and_say "Would you like to play a game of Blackjack?"
-  answer = gets.chomp
-  if ["y","yes"].include? answer.downcase
-    bjg = BlackjackGame.new
-    bjg.play
-  else
-    Input.puts_and_say "OK, maybe later."
-  end
+  # Input.puts_and_say "Would you like to play a game of Blackjack?"
+  # answer = gets.chomp
+  # if ["y","yes"].include? answer.downcase
+  #   bjg = BlackjackGame.new
+  #   bjg.play
+  # else
+  #   Input.puts_and_say "OK, maybe later."
+  # end
 end

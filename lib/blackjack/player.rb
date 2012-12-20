@@ -7,7 +7,9 @@ class Player < Participant
       Input.puts_and_say "Congratulations!"
       return
     end
+
     prompt
+
     until time_to_stop?
       take_a_card deck
       Input.puts_and_say "\nYou drew the #{hand.last.to_s}"
@@ -22,7 +24,7 @@ class Player < Participant
   end
 
   def time_to_stop?
-    busted? || best_score? || gets.strip == "stay"
+    busted? || best_score? || gets.strip.include?("stay")
   end
 
   def result(dealer_hand_value)
